@@ -1,9 +1,6 @@
 package com.sistema_de_gestion_de_prestamos_libros.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,8 +18,7 @@ public class Book {
     private String titulo;
     private String autor;
     private String isbn;
-    private String estado;
 
+    @Enumerated(EnumType.STRING)
+    private BooKStatus status;
 }
-
-

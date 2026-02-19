@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -16,8 +17,8 @@ public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private Date fechaInit;
-    private Date fechaDev;
+    private LocalDate fechaInit;
+    private LocalDate fechaDev;
 
     // RELACIONES
 
@@ -25,15 +26,17 @@ public class Loan {
      * The book associated with this loan.
      */
     @ManyToOne
-    @JoinColumn(name = "libro_id")
-    private Book libro;
+    @JoinColumn(name = "book_id")
+    private Book book;
 
     /**
      * The user who borrowed the book.
      */
     @ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private User usuario;
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
+    public void setFechaInit(LocalDate now) {
+    }
 }
